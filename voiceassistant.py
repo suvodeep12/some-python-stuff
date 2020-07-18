@@ -1,30 +1,26 @@
-import subprocess
-import wolframalpha
-import pyttsx3
-import tkinter
-import json
-import random
-import operator
-import speech_recognition as sr
-import datetime
-import wikipedia
-import webbrowser
-import os
-import winshell
-import pyjokes
-import feedparser
-import smtplib
 import ctypes
-import time
-import requests
+import datetime
+import json
+import os
 import shutil
-from twilio.rest import Client
-from clint.textui import progress
-from bs4 import BeautifulSoup
-import win32com.client as wincl
+import smtplib
+import subprocess
+import time
+import webbrowser
 from urllib.request import urlopen
 
-engine = pyttsx3.init('sapi5')
+import pyjokes
+import pyttsx3
+import requests
+import speech_recognition as sr
+import wikipedia
+import winshell
+import wolframalpha
+from clint.textui import progress
+from pyttsx3 import Engine
+from twilio.rest import Client
+
+engine: Engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
@@ -64,7 +60,7 @@ def usrname():
     speak("How can i Help you, Sir")
 
 
-def takeCommand():
+def takeCommand() -> object:
     r = sr.Recognizer()
 
     with sr.Microphone() as source:
@@ -140,7 +136,7 @@ if __name__ == '__main__':
             music_dir = "C:\\Users\\GAURAV\\Music"
             songs = os.listdir(music_dir)
             print(songs)
-            random = os.startfile(os.path.join(music_dir, songs[1]))
+            os.startfile(os.path.join(music_dir, songs[1]))
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("% H:% M:% S")
@@ -225,11 +221,11 @@ if __name__ == '__main__':
             speak("If you talk then definately your human.")
 
         elif "why you came to world" in query:
-            speak("Thanks to Gaurav. further It's a secret")
+            speak("Thanks to Suvodeep. further It's a secret")
 
         elif 'power point presentation' in query:
             speak("opening Power Point presentation")
-            power = r"C:\\Users\\GAURAV\\Desktop\\Minor Project\\Presentation\\Voice Assistant.pptx"
+            power = r"C:\\Users\\Suvo\\Desktop\\Minor Project\\Presentation\\Voice Assistant.pptx"
             os.startfile(power)
 
         elif 'is love' in query:
@@ -246,7 +242,7 @@ if __name__ == '__main__':
                                                        0,
                                                        "Location of wallpaper",
                                                        0)
-            speak("Background changed succesfully")
+            speak("Background changed successfully")
 
         elif 'open bluestack' in query:
             appli = r"C:\\ProgramData\\BlueStacks\\Client\\Bluestacks.exe"
@@ -256,7 +252,8 @@ if __name__ == '__main__':
 
             try:
                 jsonObj = urlopen(
-                    '''https://newsapi.org / v1 / articles?source = the-times-of-india&sortBy = top&apiKey =\\times of India Api key\\''')
+                    '''https://newsapi.org / v1 / articles?source = the-times-of-india&sortBy = top&apiKey =\\times 
+                    of India Api key\\''')
                 data = json.load(jsonObj)
                 i = 1
 
