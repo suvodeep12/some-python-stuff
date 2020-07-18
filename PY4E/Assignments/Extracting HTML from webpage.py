@@ -1,8 +1,9 @@
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import ssl
+from urllib.request import urlopen
 
-#parameter
+from bs4 import BeautifulSoup
+
+# parameter
 content = []
 total = 0
 # Ignore SSL certificate errors
@@ -22,7 +23,7 @@ soup = BeautifulSoup(html, "html.parser")
 tags = soup('span')
 for tag in tags:
     content.append(tag.contents[0])
-    
+
 for i in range(len(content)):
     total = total + int(content[i])
-print("Sum:",total)
+print("Sum:", total)

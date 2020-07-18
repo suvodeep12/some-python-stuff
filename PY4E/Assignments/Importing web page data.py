@@ -5,8 +5,8 @@ HOST = "www.data.pr4e.org"
 PORT = 80
 mysock.connect((HOST, PORT))
 cmd = "GET http://data.pr4e.org/intro-short.txt HTTP/1.0\n\n".encode()
-#mysock.connect(('www.py4inf.com', 80))
-#cmd = 'GET http://www.py4inf.com/code/romeo.txt HTTP/1.0\n\n'.encode()
+# mysock.connect(('www.py4inf.com', 80))
+# cmd = 'GET http://www.py4inf.com/code/romeo.txt HTTP/1.0\n\n'.encode()
 mysock.send(cmd)
 
 while True:

@@ -1,6 +1,7 @@
-import urllib.request, urllib.parse, urllib.error
+import ssl
+import urllib.request
+
 from bs4 import BeautifulSoup
-import ssl, sys
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()
@@ -15,13 +16,13 @@ html = urllib.request.urlopen(url, context=ctx).read()
 soup = BeautifulSoup(html, 'html.parser')
 
 # Retrieve all of the anchor tags
-print("Retrieving",url)
+print("Retrieving", url)
 tags = soup('a')
 for i in range(int(count)):
     links = []
     for tag in tags:
         links.append(str(tag.get('href', None)))
-    html = urllib.request.urlopen(links[int(position)-1], context=ctx).read()
+    html = urllib.request.urlopen(links[int(position) - 1], context=ctx).read()
     soup = BeautifulSoup(html, 'html.parser')
-    print("Retrieving",links[int(position)-1])
+    print("Retrieving", links[int(position) - 1])
     tags = soup('a')
