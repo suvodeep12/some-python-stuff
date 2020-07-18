@@ -39,13 +39,13 @@ def wishMe():
     if 0 <= hour < 12:
         speak("Good Morning Sir !")
 
-    elif hour >= 12 and hour < 18:
+    elif 12 <= hour < 18:
         speak("Good Afternoon Sir !")
 
     else:
         speak("Good Evening Sir !")
 
-    assname = ("Jarvis 1 point o")
+    assname = "Jarvis 1 point o"
     speak("I am your Assistant")
     speak(assname)
 
