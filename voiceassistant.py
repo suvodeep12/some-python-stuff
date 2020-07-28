@@ -8,7 +8,6 @@ import subprocess
 import time
 import webbrowser
 from urllib.request import urlopen
-
 import pyjokes
 import pyttsx3
 import requests
