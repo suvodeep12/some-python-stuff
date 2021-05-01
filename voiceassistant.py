@@ -294,8 +294,6 @@ if __name__ == '__main__':
             speak(location)
             webbrowser.open("https://www.google.nl / maps / place/" + location + "")
 
-        elif "camera" in query or "take a photo" in query:
-            ec.capture(0, "Jarvis Camera ", "img.jpg")
 
         elif "restart" in query:
             subprocess.call(["shutdown", "/r"])
